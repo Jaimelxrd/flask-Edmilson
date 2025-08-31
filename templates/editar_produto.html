@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+    <style>
+        body { font-family: Arial; margin: 40px; background: #f5f5f5; }
+        form { background: white; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        img { max-height: 100px; display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Editar Produto</h2>
+    <form method="post" enctype="multipart/form-data">
+        <label>Nome:</label>
+        <input type="text" name="nome" value="{{ produto.nome }}" required>
+
+        <label>Preço:</label>
+        <input type="number" name="preco" value="{{ produto.preco }}" step="0.01" required>
+
+        <label>Descrição:</label>
+        <textarea name="descricao">{{ produto.descricao }}</textarea>
+
+        <label>Categoria:</label>
+        <input type="text" name="categoria" value="{{ produto.categoria }}">
+
+        <label>Imagem Atual:</label><br>
+        {% if produto.imagem %}
+            <img src="{{ url_for('static', filename=produto.imagem.split('static/')[-1]) }}">
+        {% else %}
+            Sem imagem
+        {% endif %}
+
+        <label>Nova Imagem (opcional):</label>
+        <input type="file" name="imagem">
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+</body>
+</html>

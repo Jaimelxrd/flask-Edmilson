@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Seu Carrinho</title>
+    <style>
+        body { font-family: Arial; margin: 30px; background: #f2f2f2; }
+        .produto { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .total { font-size: 18px; font-weight: bold; margin-top: 20px; }
+        .btn-finalizar { background: green; color: white; padding: 10px 20px; border: none; border-radius: 4px; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h2>Resumo do Carrinho</h2>
+
+    {% for p in produtos %}
+    <div class="produto">
+        <strong>{{ p.nome }}</strong><br>
+        Preço: {{ "%.2f"|format(p.preco) }} MZN
+    </div>
+    {% endfor %}
+
+    <p class="total">Total: {{ "%.2f"|format(total) }} MZN</p>
+
+    {% set texto = 'Olá! Gostaria de comprar os seguintes produtos:\n' %}
+    {% for p in produtos %}
+        {% set texto = texto + '- ' + p.nome + ' (' + ('%.2f MZN' % p.preco) + ')\n' %}
+    {% endfor %}
+    {% set texto = texto + '\nTotal: %.2f MZN' % total %}
+    {% set msg_whatsapp = texto|urlencode %}
+
+    <a href="https://wa.me/258840000000?text={{ msg_whatsapp }}" class="btn-finalizar" target="_blank">
+        Finalizar no WhatsApp
+    </a>
+</body>
+</html>

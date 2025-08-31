@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja</title>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #f4f4f4; }
+        .produto { background: white; padding: 15px; margin: 10px 0; border-radius: 6px; }
+        img { max-width: 100px; }
+    </style>
+</head>
+<body>
+
+    <h2>Produtos Disponíveis</h2>
+    <form method="post" action="/carrinho">
+        {% for produto in produtos %}
+        <div class="produto">
+            <input type="checkbox" name="produtos" value="{{ produto.id }}">
+            <strong>{{ produto.nome }}</strong><br>
+            Preço: {{ "%.2f"|format(produto.preco) }} MZN<br>
+            {% if produto.imagem %}
+                <img src="{{ url_for('static', filename=produto.imagem.split('static/')[-1]) }}">
+            {% endif %}
+            <p>{{ produto.descricao }}</p>
+        </div>
+        {% endfor %}
+        <button type="submit">Ir para o Carrinho</button>
+    </form>
+
+</body>
+</html>

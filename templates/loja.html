@@ -1,0 +1,131 @@
+
+    {% extends 'base.html' %}
+    {% block title %}Loja{% endblock %}
+    {% block content %}
+    <main>
+      <section class="categoria">
+        <div class="category">
+          <div class="categoria-img">
+            <img src="{{ url_for('static', filename='icons/loja-imagens/IMG3.jpg') }}" alt="imagem" />
+          </div>
+          <div class="informacao-categoria">
+            <a href="{{ url_for('loja') }}">Todas</a>
+          </div>
+        </div>
+        <div class="category">
+          <div class="categoria-img">
+            <img src="{{ url_for('static', filename='icons/loja-imagens/IMG1.jpg') }}" alt="imagem" />
+          </div>
+          <div class="informacao-categoria">
+            <a href="{{ url_for('loja', categoria='Eletrônicos') }}">Eletrônicos</a>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="categoria-img">
+            <img src="{{ url_for('static', filename='icons/loja-imagens/IMG2.jpg') }}" alt="imagem" />
+          </div>
+          <div class="informacao-categoria">
+            <a href="{{ url_for('loja', categoria='Roupas') }}">Roupas</a>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="categoria-img">
+            <img src="{{ url_for('static', filename='icons/loja-imagens/IMG5.jpg') }}" alt="imagem" />
+          </div>
+          <div class="informacao-categoria">
+            <a href="{{ url_for('loja', categoria='Livros') }}">Livros</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Produtos -->
+      <section class="produtos">
+        <div class="titulo">
+          <h1>Produtos</h1>
+        </div>
+        <div class="container-produtos">
+          {% for produto in produtos %}
+          <div class="filho">
+            <img
+              src="{{ url_for('static', filename=produto.imagem.split('static/')[-1]) }}"alt="{{ produto.nome }}"/>
+            <div class="inf">
+              <h1 class="name">{{ produto.nome }}</h1>
+              <p>{{ produto.descricao }}</p>
+              <p><strong>{{ "%.2f"|format(produto.preco) }} MZN</strong></p>
+              <a href="{{ url_for('adicionar_ao_carrinho', produto_id=produto.id) }}" class="comprar">comprar</a >
+            </div>
+          </div>
+          {% else %}
+          <p>Nenhum produto encontrado nesta categoria.</p>
+          {% endfor %}
+        </div>
+      </section>
+    {% endblock %}
+    </main>
+
+    <footer
+      id="Contatos"
+      style="background: #222; margin-top: 20px; color: white"
+    >
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h2>Sobre Nós</h2>
+          <p>
+            Somos uma empresa comprometida em fornecer os melhores produtos e
+            serviços para nossos clientes. Siga-nos nas redes sociais para ficar
+            por dentro das novidades!
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section links">
+          <h2>Links Úteis</h2>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section contact">
+          <h2>Contato</h2>
+          <ul>
+            <li><i class="bx bx-envelope"></i> Edimilson@.com</li>
+            <li><i class="bx bx-phone"></i> +258 84####</li>
+            <li><i class="bx bx-map"></i> Nkombe, 123, ##### - MP</li>
+          </ul>
+        </div>
+
+        <div class="footer-section form">
+          <h2>Envie Sua Dúvida</h2>
+          <!--form action="mailto:contato@seusite.com" method="post" enctype="text/plain"-->
+          <form
+            action="https://formspree.io/f/{seu-formulario-id}" method="POST">
+            <input type="text" name="nome" placeholder="Seu Nome" required />
+            <input type="email" name="email" placeholder="Seu Email" required />
+            <textarea
+              name="mensagem"
+              rows="4"
+              placeholder="Sua Mensagem"
+              required
+            ></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ###. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="script/script.js" defer></script>
+  </body>
+</html>

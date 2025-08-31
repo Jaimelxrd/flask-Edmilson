@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Ícones e estilos externos -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
+
+    <!-- Estilo local -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/l-Style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo"><img src="#" alt="Logo" /></a>
+        <ul class="navbar">
+            <li><a href="{{ url_for('index') }}" class="casa">Home</a></li>
+            <li><a href="{{ url_for('sobre') }}" class="sobre">Sobre nós</a></li>
+            <li><a href="{{ url_for('loja') }}" class="loja">Loja</a></li>
+            <li><a href="#" class="paginas">Páginas</a></li>
+            <li><a href="#" class="blog">Blog</a></li>
+            <li><a href="#Contatos" class="contactos">Contatos</a></li>
+        </ul>
+        <div class="icons">
+            <a href="#"><i class="ri-search-line"></i></a>
+            <a href="#"><i class="ri-user-line"></i></a>
+            <a href="#"><i class="ri-shopping-cart-line"></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='script/script.js') }}" defer></script>
+</body>
+</html>

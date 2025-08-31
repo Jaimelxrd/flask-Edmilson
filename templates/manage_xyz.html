@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- Evita indexação -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Administração</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f5f5f5;
+      }
+      h1 {
+        text-align: center;
+      }
+      form,
+      table {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 40px;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #eee;
+      }
+      img {
+        max-height: 50px;
+      }
+      .danger {
+        background-color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Painel de Administração da Loja</h1>
+
+    <h2>Adicionar Novo Produto</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+      <label>Nome do Produto:</label>
+      <input type="text" name="nome" required />
+
+      <label>Preço (MZN):</label>
+      <input type="number" name="preco" step="0.01" required />
+
+      <label>Descrição:</label>
+      <textarea name="descricao" rows="3"></textarea>
+
+      <label>Categoria (opcional):</label>
+      <input type="text" name="categoria" />
+
+      <label>Imagem do Produto:</label>
+      <input type="file" name="imagem" />
+
+      <button type="submit">Salvar Produto</button>
+    </form>
+
+    <h2>Produtos Cadastrados</h2>
+    {% if produtos %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Imagem</th>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Categoria</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for produto in produtos %}
+        <tr>
+          <td>{{ produto.id }}</td>
+          <td>
+            {% if produto.imagem %}
+            <img
+              src="{{ url_for('static', filename=produto.imagem.split('static/')[-1]) }}"
+              alt=""
+            />
+            {% else %} Sem imagem {% endif %}
+          </td>
+          <td>{{ produto.nome }}</td>
+          <td>{{ "%.2f"|format(produto.preco) }} MZN</td>
+          <td>{{ produto.categoria or '—' }}</td>
+          <td>
+            <a href="{{ url_for('delete', id=produto.id) }}">
+              <button class="danger">Excluir</button>
+            </a>
+          </td>
+          <td>
+            <a href="{{ url_for('edit', id=produto.id) }}">
+              <button>Editar</button>
+            </a>
+            <a href="{{ url_for('delete', id=produto.id) }}">
+              <button class="danger">Excluir</button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>Nenhum produto cadastrado ainda.</p>
+    {% endif %}
+  </body>
+</html>

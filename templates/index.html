@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+
+    <title>E-comerce</title>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><img src="#" alt=""></a>
+        <ul class="navbar">
+            <li><a href="index.html" class="casa" id="home">Home</a></li>
+            <li><a href="{{ url_for('loja') }}" class="loja">Loja</a></li>
+            <li><a href="{{ url_for('sobre') }}" class="sobre">Sobre nos</a></li>
+            <li><a href="#" class="paginas">Paginas</a></li>
+            <li><a href="#" class="blog">Blog</a></li>
+            <li><a href="#Contatos" class="contactos">Contatos</a></li>
+        </ul>
+        <div class="icons">
+            <a href=""><i class="ri-search-line"></i></a>
+            <a href="sobre.html"><i class="ri-user-line"></i></a>
+            <a href="Carinho.html"><i class="ri-shopping-cart-line"></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+    <section class="home">
+        <div class="home-text">
+            <h4>Nesse site, voce encontra os melhores produtos</h4>
+            <h1>Colecoes Exclusivas para todos</h1>
+            <a href="{{ url_for('loja') }}" class="btn">Explore agora</a>
+        </div>
+        <div class="home-img">
+            <img src="{{ url_for('static', filename='icons/imagens/4.jpg') }}" alt="Logo">
+        </div>
+    </section>
+    <section class="jaime">
+        <div class="md-text">
+            <h2>Encontre mais <span>produtos interessantes</span></h2>
+        </div>
+        <div class="jaime-content">
+            <div class="row">
+                <div class="main-row">
+                    <div class="row-tex">
+                        <h6>Explore novas coisas</h6><!--coloque uma imagem de um produto ou qualquer coisa nesse local-->
+                        <h3><br> Amplie suas opcoes de Excolha</h3><!--escreva algo diferente nesse local, faca o mesmo para os proximos sitios.-->
+                        <a href="loja.html" class="row-btn">Ver tudo</a>
+                    </div>
+                    <div class="row-img">
+                        <img src="icons/produtos/Men's Zipper Bomber Jacket, Back.jpg" alt="imagens">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row2">
+                <div class="main-row">
+                    <div class="row-tex">
+                        <h6>Seja o Primeiro a Experimentar</h6>
+                        <h3><br> Esteja à frente e viva a exclusividade! </h3>
+                        <a href="loja.html" class="row-btn">Ver tudo</a>
+                    </div>
+                    <div class="row-img">
+                        <img src="icons/produtos/e59d4a2e-aaa2-472a-9b38-a1dbdc6c.jpg" alt="imagens">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row3">
+                <div class="main-row">
+                    <div class="row-tex">
+                        <h6>Encontre o que Precisa</h6>
+                        <h3><br> Soluções que transformam sua rotina!</h3>
+                        <a href="loja.html" class="row-btn">Ver tudo</a>
+                    </div>
+                    <div class="row-img">
+                        <img src="icons/produtos/Playstation Sony, 5 Slim, PS5 av.jpg"  alt="imagens">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="product">
+        <div class="md-text">
+            <h2>Novos produtos de <span>Melhor Qualidade</span></h2>
+        </div>
+
+        <div class="product-content">
+            <div class="box">
+                <div class="box-img">
+                    <img src="icons/produtos/Portátil HP 15s-fq1033ns al prec.jpg" alt="imagem do produto">
+                </div>
+                <h3>Garafa de agua</h3>
+                <h4>nova garava</h4>
+                <div class="inbox">
+                    <div>
+                        <a href="#" class="price">42.00 MZN</a>
+                    </div>
+                    <div class="rating">
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                    </div>
+                </div>
+                <div class="heart">
+                    <i class="ri-heart-line"></i>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="icons/produtos/Men Summer Round Neck Cartoon Pr.jpg" alt="">
+                </div>
+                <h3>Garafa de agua</h3>
+                <h4>nova garava</h4>
+                <div class="inbox">
+                    <div>
+                        <a href="#" class="price">42.00 MZN</a>
+                    </div>
+                    <div class="rating">
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                    </div>
+                </div>
+                <div class="heart">
+                    <i class="ri-heart-line"></i>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="icons/produtos/PS4 Pro Console - Save $100 Off! (1).jpg" alt="">
+                </div>
+                <h3>Garafa de agua</h3>
+                <h4>nova garava</h4>
+                <div class="inbox">
+                    <div>
+                        <a href="#" class="price">42.00 MZN</a>
+                    </div>
+                    <div class="rating">
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                    </div>
+                </div>
+                <div class="heart">
+                    <i class="ri-heart-line"></i>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="icons/produtos/Men Knitted Casual Short Sleeve .jpg" alt="">
+                </div>
+                <h3>Garafa de agua</h3>
+                <h4>nova garava</h4>
+                <div class="inbox">
+                    <div>
+                        <a href="#" class="price">42.00 MZN</a>
+                    </div>
+                    <div class="rating">
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                        <a href="#"><i class="ri-star-fill"></i></a>
+                    </div>
+                </div>
+                <div class="heart">
+                    <i class="ri-heart-line"></i>
+                </div>
+            </div>
+
+        </div>
+        <div class="see-more">
+            <a href="loja.html"><button class="see-more-btn">Ver Mais</button></a>
+        </div>
+
+    </section>
+
+
+    <section class="cta-content">
+        <div class="cta">
+            <div class="cta-text">
+                <a href="#" class="logo"><img src="#" width="30px" height="10px" alt="logo"></a>
+                <h3>Ofertas especiais</h3>
+                <p>Edimilson, escreva algo interessante nesse local para atrair clientes</p>
+                <a href="loja.html" class="btn">Descubra mais</a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="main-contact">
+            <div class="contact-content">
+                <h5>Quem Somos</h5>
+                <li><a href="sobre.html">Nossa História</a></li>
+                <li><a href="sobre.html">Missão e Valores</a></li>
+                <li><a href="sobre.html">Nossa Equipe</a></li>
+                <li><a href="sobre.html">Parceiros</a></li>
+            </div>
+            
+            <div class="contact-content">
+                <h5>Serviços</h5>
+                <li><a href="sobre.html">Consultoria</a></li>
+                <li><a href="sobre.html">Desenvolvimento Web</a></li>
+                <li><a href="sobre.html">Marketing Digital</a></li>
+                <li><a href="sobre.html">Suporte Técnico</a></li>
+            </div>
+    
+            <div class="contact-content">
+                <h5>Ajuda</h5>
+                <li><a href="sobre.html">FAQ</a></li>
+                <li><a href="sobre.html">Central de Suporte</a></li>
+                <li><a href="sobre.html">Termos de Uso</a></li>
+                <li><a href="sobre.html">Política de Privacidade</a></li>
+            </div>
+    
+            <div class="contact-content">
+                <h5>Contato</h5>
+                <li><a href="sobre.html">Fale Conosco</a></li>
+                <li><a href="sobre.html">Trabalhe Conosco</a></li>
+                <li><a href="sobre.html">Nossas Redes Sociais</a></li>
+                <li><a href="sobre.html">Localização</a></li>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer id="Contatos">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Sobre Nós</h2>
+                <p>
+                    Somos uma empresa comprometida em fornecer os melhores produtos e serviços para nossos clientes. 
+                    Siga-nos nas redes sociais para ficar por dentro das novidades!
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-instagram"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-section links">
+                <h2>Links Úteis</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section contact">
+                <h2>Contato</h2>
+                <ul>
+                    <li><i class="bx bx-envelope"></i> Edimilson@.com</li>
+                    <li><i class="bx bx-phone"></i> +258 84####</li>
+                    <li><i class="bx bx-map"></i> Nkombe, 123, ##### - MP</li>
+                </ul>
+            </div>
+    
+            <div class="footer-section form">
+                <h2>Envie Sua Dúvida</h2>
+                <!--form action="mailto:contato@seusite.com" method="post" enctype="text/plain"-->
+                <form action="https://formspree.io/f/{seu-formulario-id}" method="POST">
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                    <input type="email" name="email" placeholder="Seu Email" required>
+                    <textarea name="mensagem" rows="4" placeholder="Sua Mensagem" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ###. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+
+    <script src="script/script.js" defer></script>
+</body>
+</html>
